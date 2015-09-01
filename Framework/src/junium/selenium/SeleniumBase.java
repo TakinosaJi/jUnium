@@ -161,7 +161,7 @@ public class SeleniumBase {
         step.SmallWait = new WebDriverWait(Driver, 3);
         step.Wait = new WebDriverWait(Driver, 10);
         step.LongWait = new WebDriverWait(Driver, 30);
-        step.SiteUrl = SiteUrl;
+        step.SiteUrls = SiteUrl;
         step.Browser = Browser;
 
         IsFailed = true;

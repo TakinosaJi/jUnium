@@ -13,7 +13,7 @@ public abstract class BaseStep implements IStepExecutable {
     public WebDriverWait Wait;
     public WebDriverWait LongWait;
     public String Name;
-    public UrlHelper SiteUrl;
+    public UrlHelper SiteUrls;
     public Browser Browser;
 
     public BaseStep(IBaseStepDto dto) {
@@ -23,6 +23,6 @@ public abstract class BaseStep implements IStepExecutable {
     public BaseStep(IBaseStepDto dto, String name) {
         Dto = dto;
         Name = name;
-        SiteUrl = new UrlHelper("");
+        SiteUrls = new UrlHelper("");
     }
 }
