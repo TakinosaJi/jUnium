@@ -173,10 +173,9 @@ public class SeleniumBase {
 
         return stepReturns;
     }
+/*    public <TStep extends BaseStep, TDto extends IBaseStepDto> HashMap<String, Object> Do(TDto dto) {
 
-//    public <TStep extends BaseStep, TDto extends BaseStepDto> HashMap<String, Object> Do(TDto dto) {
-//
-//    }
+    }*/
 }
 
 

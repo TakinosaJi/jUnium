@@ -9,18 +9,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class PageObjectBase implements IWebDriverAccessible {
+public class PageObjectBase extends WebElementsContainer implements IWebDriverAccessible {
     public String Name;
     private String MarkerXPath;
-    protected WebDriver Driver;
     private WebElement Marker;
-    protected WebDriverWait Wait;
 
     public PageObjectBase(WebDriver driver, WebDriverWait wait, String name, String markerXPath) throws PageObjectNotFoundException {
+        super(driver, wait);
+
         Name = name;
         MarkerXPath = markerXPath;
-        Driver = driver;
-        Wait = wait;
 
         exists();
     }
@@ -38,5 +36,4 @@ public class PageObjectBase implements IWebDriverAccessible {
             throw new PageObjectNotFoundException(Name);
         }
     }
-
 }

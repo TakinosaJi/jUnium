@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BaseStep implements IStepExecutable {
-    public BaseStepDto Dto;
+    public IBaseStepDto Dto;
     public WebDriver Driver;
     public WebDriverWait SmallWait;
     public WebDriverWait Wait;
@@ -16,11 +16,11 @@ public abstract class BaseStep implements IStepExecutable {
     public UrlHelper SiteUrl;
     public Browser Browser;
 
-    public BaseStep(BaseStepDto dto) {
+    public BaseStep(IBaseStepDto dto) {
         this(dto, "");
     }
 
-    public BaseStep(BaseStepDto dto, String name) {
+    public BaseStep(IBaseStepDto dto, String name) {
         Dto = dto;
         Name = name;
         SiteUrl = new UrlHelper("");
