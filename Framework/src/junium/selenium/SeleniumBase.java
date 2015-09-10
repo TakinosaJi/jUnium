@@ -84,8 +84,8 @@ public class SeleniumBase {
         switch(Browser) {
             case Chrome: {
                 System.setProperty("webdriver.chrome.driver", Settings.ChromeDriverPath);
-                ChromeCapabilities = DesiredCapabilities.chrome();
-                ChromeService = ChromeDriverService.createDefaultService();
+                ChromeCapabilities = ChromeCapabilities == null ? DesiredCapabilities.chrome() : ChromeCapabilities;
+                ChromeService = ChromeService == null ? ChromeDriverService.createDefaultService() : ChromeService;
                 Driver = new ChromeDriver(ChromeService, ChromeCapabilities);
             }
             break;
@@ -95,8 +95,8 @@ public class SeleniumBase {
             break;
             case IE: {
                 System.setProperty("webdriver.ie.driver", Settings.IEDriverPath);
-                IECapabilities = DesiredCapabilities.internetExplorer();
-                IEService = InternetExplorerDriverService.createDefaultService();
+                IECapabilities = IECapabilities == null ? DesiredCapabilities.internetExplorer() : IECapabilities;
+                IEService = IEService == null ? InternetExplorerDriverService.createDefaultService() : IEService;
                 Driver = new InternetExplorerDriver(IEService, IECapabilities);
             }
             break;
@@ -113,12 +113,9 @@ public class SeleniumBase {
     }
 
     private void InitializeFirefoxDriver(){
-        FirefoxCapabilities = DesiredCapabilities.firefox();
-        FirefoxDriverProfile = new FirefoxProfile();
-        FirefoxDriverProfile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/vnd.ms-excel");
-
-        FirefoxDriverProfile.setPreference("browser.download.dir","C:\\Users\\AnnaA_000\\Downloads\\");
-        FirefoxDriverBinary= new FirefoxBinary();
+        FirefoxCapabilities = FirefoxCapabilities == null ? DesiredCapabilities.firefox() : FirefoxCapabilities;
+        FirefoxDriverProfile = FirefoxDriverProfile == null ? new FirefoxProfile() : FirefoxDriverProfile;
+        FirefoxDriverBinary = FirefoxDriverBinary == null ? new FirefoxBinary() : FirefoxDriverBinary;
         Driver = new FirefoxDriver(FirefoxDriverBinary, FirefoxDriverProfile, FirefoxCapabilities);
     }
 
