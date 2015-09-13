@@ -2,6 +2,7 @@ package junium.utils;
 
 
 
+import junium.selenium.SeleniumBase;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
 import org.reflections.scanners.SubTypesScanner;
@@ -28,6 +29,6 @@ public class TestClassRunner {
                 .setUrls(ClasspathHelper.forClassLoader(classLoadersList.toArray(new ClassLoader[0])))
                 .filterInputsBy(filters));
 
-        return null;//reflections.getSubTypesOf(Object.class);
+        return reflections.getSubTypesOf(SeleniumBase.class).toArray(new Class[0]);
     }
 }
