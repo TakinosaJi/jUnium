@@ -3,6 +3,7 @@ package junium.utils;
 
 
 import junium.selenium.SeleniumBase;
+import org.junit.runner.JUnitCore;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
 import org.reflections.scanners.SubTypesScanner;
@@ -30,5 +31,9 @@ public class TestClassRunner {
                 .filterInputsBy(filters));
 
         return reflections.getSubTypesOf(SeleniumBase.class).toArray(new Class[0]);
+    }
+
+    public static void RunTests(String... packages){
+        JUnitCore.runClasses(GetClassesInPackages(packages));
     }
 }
