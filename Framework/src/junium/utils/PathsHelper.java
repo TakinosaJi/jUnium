@@ -5,6 +5,6 @@ import java.nio.file.Paths;
 
 public class PathsHelper {
     public static String GetAbsoluteWorkingDirPath(){
-        return Paths.get("").toAbsolutePath().toString() + File.separator;
+        return Paths.get("").toAbsolutePath().toString();
     }
 }

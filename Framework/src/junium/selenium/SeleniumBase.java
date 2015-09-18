@@ -126,15 +126,15 @@ public class SeleniumBase {
             Date now = new Date();
             String screenshotName = "Screenshot_" + now.toString().replace(' ', '_').replace(':', '_') + ".png";
             String className = this.getClass().getName();
-            Path folderPath = Paths.get(PathsHelper.GetAbsoluteWorkingDirPath() + Settings.ScreenshotFolderPath + File.separator + className);
-            File screenshotsDir = new File(folderPath.toString());
-            String filePath = folderPath + "\\" + screenshotName;
+            String folderPath = Paths.get(Settings.ScreenshotFolderPath).isAbsolute() ? Settings.ScreenshotFolderPath :
+                    PathsHelper.GetAbsoluteWorkingDirPath() + File.separator + Settings.ScreenshotFolderPath;
+            Path completePath = Paths.get(folderPath, className);
+            File screenshotsDir = new File(completePath.toString());
             if(!screenshotsDir.exists() || !screenshotsDir.isDirectory()){
                 screenshotsDir.mkdirs();
             }
-
+            String filePath = completePath + File.separator + screenshotName;
             FileUtils.copyFile(scrFile, new File(filePath));
-
             File[] files = screenshotsDir.listFiles(pathname -> {
                 return pathname.getName().endsWith(".png");
             });
@@ -148,7 +148,7 @@ public class SeleniumBase {
                 }
             }
             System.out.print("View screenshot: " + Settings.WebAppUrl + "/" +
-                    new File(PathsHelper.GetAbsoluteWorkingDirPath() + Settings.ScreenshotFolderPath).getName() + "/" + className + "/" + screenshotName);
+                    new File(PathsHelper.GetAbsoluteWorkingDirPath() + '/' + Settings.ScreenshotFolderPath).getName() + "/" + className + "/" + screenshotName);
         }
         Driver.quit();
     }
