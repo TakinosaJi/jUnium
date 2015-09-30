@@ -121,13 +121,13 @@ public class SeleniumBase {
 
     @After
     public void BaseTearDown() throws IOException {
-        if (IsFailed == true){
+        if (IsFailed == true) {
             File scrFile = ((TakesScreenshot)Driver).getScreenshotAs(OutputType.FILE);
             Date now = new Date();
             String screenshotName = "Screenshot_" + now.toString().replace(' ', '_').replace(':', '_') + ".png";
             String className = this.getClass().getName();
-            String folderPath = Paths.get(Settings.ScreenshotFolderPath).isAbsolute() ? Settings.ScreenshotFolderPath :
-                    PathsHelper.GetAbsoluteWorkingDirPath() + File.separator + Settings.ScreenshotFolderPath;
+            String folderPath = Paths.get(Settings.ScreenshotSystemPath).isAbsolute() ? Settings.ScreenshotSystemPath :
+                    PathsHelper.GetAbsoluteWorkingDirPath() + File.separator + Settings.ScreenshotSystemPath;
             Path completePath = Paths.get(folderPath, className);
             File screenshotsDir = new File(completePath.toString());
             if(!screenshotsDir.exists() || !screenshotsDir.isDirectory()){
@@ -147,8 +147,8 @@ public class SeleniumBase {
                     file.delete();
                 }
             }
-            System.out.print("View screenshot: " + Settings.WebAppUrl + "/" +
-                    new File(PathsHelper.GetAbsoluteWorkingDirPath() + '/' + Settings.ScreenshotFolderPath).getName() + "/" + className + "/" + screenshotName);
+            System.out.print("View screenshot: " + Settings.WebAppUrl + "/" + (Settings.ScreenshotUrlPath.isEmpty() ? "" : Settings.ScreenshotUrlPath + "/") +
+                    className + "/" + screenshotName);
         }
         Driver.quit();
     }
