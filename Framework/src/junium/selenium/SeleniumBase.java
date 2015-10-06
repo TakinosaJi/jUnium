@@ -57,6 +57,7 @@ public class SeleniumBase {
 
     protected DesiredCapabilities IECapabilities;
     protected InternetExplorerDriverService IEService;
+
     public SeleniumBase() {
         Settings = new SettingsBase();
         SiteUrl = new UrlHelper(Settings.MainUrl);
