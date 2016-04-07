@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Class-Path: selenium-remote-driver-2.53.0.jar jna-4.1.0.jar reflection
+ s-0.9.10.jar selenium-leg-rc-2.53.0.jar cglib-nodep-2.1_3.jar seleniu
+ m-edge-driver-2.53.0.jar commons-logging-1.2.jar selenium-api-2.53.0.
+ jar annotations-2.0.1.jar selenium-java-2.53.0.jar commons-codec-1.9.
+ jar gson-2.3.1.jar commons-exec-1.3.jar selenium-support-2.53.0.jar n
+ etty-3.5.7.Final.jar hamcrest-core-1.3.jar javassist-3.19.0-GA.jar se
+ lenium-safari-driver-2.53.0.jar junit-4.12.jar commons-io-2.4.jar sel
+ enium-ie-driver-2.53.0.jar jna-platform-4.1.0.jar guava-15.0.jar http
+ client-4.5.1.jar httpcore-4.4.3.jar selenium-firefox-driver-2.53.0.ja
+ r selenium-chrome-driver-2.53.0.jar
+Main-Class: 
+
